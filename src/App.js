@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Welcome from "./pages/Welcome";
+import Create from "./pages/Create";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       </nav>
       <Routes>          
         <Route path="/" element={<Welcome />} />
+        <Route path="/create" element={<Create />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<Errorpage />} />
