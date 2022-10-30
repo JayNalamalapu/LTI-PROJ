@@ -8,6 +8,13 @@ const Home = () => {
 
   let history = useNavigate();
 
+  const handleEdit = (id, name, startdate, enddate) => {
+    localStorage.setItem('name',name);
+    localStorage.setItem('id',id);
+    localStorage.setItem('startdate',startdate);
+    localStorage.setItem('enddate',enddate);
+  }
+
   const handleDelete = (id) => {
     var index = Listofrecords.map(function(e){
       return e.id
@@ -47,7 +54,7 @@ const Home = () => {
                         </td>
                         <td>
                           <Link to={'/edit'}>
-                          <Button size="sm" onClick={() => alert(item.id)}>EDIT</Button>
+                          <Button size="sm" onClick={() => handleEdit(item.id, item.name, item.startdate, item.enddate)}>EDIT</Button>
                           </Link>&nbsp;
                           <Button size="sm" onClick={() => handleDelete(item.id)}>DELETE</Button>
                         </td>

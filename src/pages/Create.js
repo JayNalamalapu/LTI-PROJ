@@ -27,7 +27,6 @@ function Create(){
 
     return(
         <div>
-            <p>hello</p>
             <Form className="d-grid gap-2" style={{margin:'15rem'}}>
                 <Form.Group className="mb-3" controlId="formName">
                     <Form.Control type="text" placeholder="Enter Name" required onChange={(e) => setName(e.target.value)}>
