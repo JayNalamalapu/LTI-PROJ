@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState} from "react";
 import {Button, Table} from 'react-bootstrap';
 import Listofrecords from "./Listofrecords";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, useNavigate} from 'react-router-dom';
+import TableData from "./TableData";
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
     localStorage.setItem('enddate',enddate);
   }
 
+
   const handleDelete = (id) => {
     var index = Listofrecords.map(function(e){
       return e.id
@@ -22,8 +24,8 @@ const Home = () => {
     Listofrecords.splice(index,1);
 
     history('/home');
-
   }
+
       return (
         <Fragment>
           <div style={{margin:"10rem"}}>
@@ -38,8 +40,30 @@ const Home = () => {
               </thead>
               <tbody>
                 {
-                  Listofrecords && Listofrecords.length > 0
+                   Listofrecords.length > 0
                   ?
+                  Listofrecords.map((item) => {
+                    return(
+                      <tr key={item.id}>
+                        <td>
+                          {item.name}
+                        </td>
+                        <td>
+                          {item.startdate}
+                        </td>
+                        <td>
+                          {item.enddate}
+                        </td>
+                        <td>
+                          <Link to={'/edit'}>
+                          <Button size="sm" onClick={() => handleEdit(item.id, item.name, item.startdate, item.enddate)}>EDIT</Button>
+                          </Link>&nbsp;
+                          <Button size="sm" onClick={() => handleDelete(item.id)}>DELETE</Button>
+                        </td>
+                      </tr>
+                    )
+                  })
+                  :
                   Listofrecords.map((item) => {
                     return(
                       <tr>
@@ -61,13 +85,11 @@ const Home = () => {
                       </tr>
                     )
                   })
-                  :
-                  "No Data Available"
                 }
               </tbody>
             </Table>
-            <br></br>
-            <Link className="d-grid gap-2" to={'/create'}><Button size="lg">Create</Button></Link>
+             <br></br>
+            <Link className="d-grid gap-2" to={'/create'}><Button size="lg">Add Report</Button></Link>
           </div>
         </Fragment>
       );

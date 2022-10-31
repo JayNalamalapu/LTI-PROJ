@@ -7,20 +7,16 @@ import Register from "./pages/Register";
 import Welcome from "./pages/Welcome";
 import Create from "./pages/Create";
 import Edit from "./pages/edit";
+import Search from "./pages/Search";
 
 const App = () => {
   return (
     <div>
       <center>
-      <p>welcome to Demo Project</p>
       <Router>
-        <nav>
-      <Link to="/home">Home</Link>
-      <Link to="/login">login</Link>
-      <Link to="/register">register</Link>
-      </nav>
       <Routes>          
         <Route path="/" element={<Welcome />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/create" element={<Create />} />
         <Route path="/edit" element={<Edit />} />
           <Route path="/login" element={<Login />} />
