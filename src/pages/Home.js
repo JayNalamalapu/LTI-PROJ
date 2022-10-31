@@ -4,8 +4,14 @@ import Listofrecords from "./Listofrecords";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, useNavigate} from 'react-router-dom';
 import TableData from "./TableData";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+
+
 
 const Home = () => {
+
+
+
 
   let history = useNavigate();
 
@@ -28,6 +34,10 @@ const Home = () => {
 
       return (
         <Fragment>
+
+
+
+
           <div style={{margin:"10rem"}}>
             <Table striped bordered hover size="sm">
               <thead>
@@ -69,7 +79,13 @@ const Home = () => {
               </tbody>
             </Table>
              <br></br>
-            <Link className="d-grid gap-2" to={'/create'}><Button size="lg">Add Report</Button></Link>
+            <Link to={'/create'}><Button size="lg" className="btn btn-info">Add Report</Button></Link><br></br><br></br>
+            <ReactHTMLTableToExcel 
+                        className="btn btn-info"
+                        table="tab_data"
+                        filename="table_data file"
+                        sheet="Sheet"
+                        buttonText="Export to Excel"/>
           </div>
         </Fragment>
       );

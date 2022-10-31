@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useRef} from "react";
 import {Table} from 'react-bootstrap';
+import { DownloadTableExcel } from 'react-export-table-to-excel';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+
 
 const TableData = ({data}) => {
+
   return (
     <div>
-        <Table striped bordered hover size="sm">
+        <Table striped bordered hover size="sm" id="tab_data">
             <tbody>
             <tr>
                 <th>Name</th>
@@ -20,6 +24,14 @@ const TableData = ({data}) => {
             ))}
             </tbody>
         </Table>
+        <ReactHTMLTableToExcel 
+        className="btn btn-info"
+        table="tab_data"
+        filename="table_data file"
+        sheet="Sheet"
+        buttonText="Export to Excel"
+        disabled={true}
+        />
     </div>
   );
 }

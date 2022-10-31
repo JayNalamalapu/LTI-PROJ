@@ -1,10 +1,11 @@
 import React from "react";
 import Listofrecords from "./Listofrecords";
 import TableData from "./TableData";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { DownloadTableExcel } from 'react-export-table-to-excel';
 
 const Search = () => {
-
+    
     const[query,setQuery] = useState("");
 
 
@@ -25,7 +26,7 @@ const Search = () => {
    onChange={(e) => setQuery(e.target.value)}
    />
 </div>
-<TableData data={search(Listofrecords)} />
+<TableData data={search(Listofrecords)}/>
     </div>
   );
 }
