@@ -30,7 +30,6 @@ const TableData = ({data}) => {
         filename="table_data file"
         sheet="Sheet"
         buttonText="Export to Excel"
-        disabled={true}
         />
     </div>
   );

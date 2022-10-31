@@ -85,7 +85,8 @@ const Home = () => {
                         table="tab_data"
                         filename="table_data file"
                         sheet="Sheet"
-                        buttonText="Export to Excel"/>
+                        buttonText="Export to Excel"
+                        />
           </div>
         </Fragment>
       );
