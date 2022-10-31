@@ -64,27 +64,7 @@ const Home = () => {
                     )
                   })
                   :
-                  Listofrecords.map((item) => {
-                    return(
-                      <tr>
-                        <td>
-                          {item.name}
-                        </td>
-                        <td>
-                          {item.startdate}
-                        </td>
-                        <td>
-                          {item.enddate}
-                        </td>
-                        <td>
-                          <Link to={'/edit'}>
-                          <Button size="sm" onClick={() => handleEdit(item.id, item.name, item.startdate, item.enddate)}>EDIT</Button>
-                          </Link>&nbsp;
-                          <Button size="sm" onClick={() => handleDelete(item.id)}>DELETE</Button>
-                        </td>
-                      </tr>
-                    )
-                  })
+                  "NO Data Available"
                 }
               </tbody>
             </Table>

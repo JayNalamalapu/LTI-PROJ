@@ -1,9 +1,10 @@
 import React from "react";
+import {Table} from 'react-bootstrap';
 
 const TableData = ({data}) => {
   return (
     <div>
-        <table>
+        <Table striped bordered hover size="sm">
             <tbody>
             <tr>
                 <th>Name</th>
@@ -18,7 +19,7 @@ const TableData = ({data}) => {
                 </tr>
             ))}
             </tbody>
-        </table>
+        </Table>
     </div>
   );
 }
